@@ -1,3 +1,26 @@
-.black {
-    background-color:pink;
+body {
+    text-align:center;
+}
+.player-box {
+    border: lightblue solid 1px;
+    border-radius : 5px;
+    height:100px;
+}
+.wins {
+    text-align:left;
+}
+.losses {
+    text-align:right;
+}
+#result {
+    position : fixed;
+    left : 30vw;
+    top : 20px;
+    background-color :white;
+    z-index : 5;
+    border: lightblue solid 1px;
+    border-radius : 5px;
+}
+.hidden {
+    display : none;
 }

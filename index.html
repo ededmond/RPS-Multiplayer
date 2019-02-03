@@ -16,20 +16,49 @@
     <link rel="stylesheet" href="assets/css/global.css">
     </head>
     <body>
+        <div class= "above" id ="result"></div>
         <div class = "container">
             <div class = "row">
                 <div class = "col-6">
                     <section class = "player">
                         <h2 id = "player-1-name"class= "player-name">Waiting for Player 1</h1>
-                        <div class = "player-box" id="player-1-box"></div>
-                        <div class = "score" id = "player-1-score"></div>
+                        <div class = "player-box" id="player-1-box">
+                            <div id = "Player1-choice"></div>
+                            <div id = "Player1-choices" class ="hidden">
+                                <button class = "choice" value = "rock">Rock</button>
+                                <button class = "choice" value = "paper">Paper</button>
+                                <button class = "choice" value = "scissors">Scissors</button>
+                            </div>
+                        </div>
+                        <div class = "row">
+                            <div class = "col-6">
+                                <div class = "wins" id = "Player1-wins"></div>
+                            </div>
+                            <div class = "col-6">
+                                <div class = "losses" id = "Player1-losses"></div>
+                            </div>
+                        </div>
                     </section>
                 </div>
                 <div class = "col-6">
                     <section class = "player">
                         <h2 id = "player-2-name">Waiting for Player 2</h2>
-                        <div class = "player-box" id="player-2-box"></div>
-                        <div class = "score" id = "player-2-score"></div>
+                        <div class = "player-box" id="player-2-box">
+                            <div id = "Player2-choice"></div>
+                            <div id = "Player2-choices" class = "hidden">
+                                <button class = "choice" value = "rock">Rock</button>
+                                <button class = "choice" value = "paper">Paper</button>
+                                <button class = "choice" value = "scissors">Scissors</button>
+                            </div>
+                        </div>
+                        <div class = "row">
+                            <div class = "col-6">
+                                <div class = "wins" id = "Player2-wins"></div>
+                            </div>
+                            <div class = "col-6">
+                                <div class = "losses" id = "Player2-losses"></div>
+                            </div>
+                        </div>
                     </section>
                 </div>
             </div>
@@ -43,7 +72,7 @@
                         <input type = "text" id = "name">
                         <button type = "submit">Sign In</button>
                     </form>
-                    <button id = "push">push</button>
+                    <button id = "sign-out">Sign Out</button>
                 </div>
             </div>
         </div>
