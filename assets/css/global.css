@@ -90,7 +90,7 @@ body {
     color:paleturquoise;
     outline: none !important;
 }
-#sign-in,#sign-out {
+.sign,#sign-out {
     margin-bottom:10px;
     border-radius:5px;
     background-color:cadetblue;
