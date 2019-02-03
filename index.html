@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Rock Paper Scissors</title>
+
+    <!-- Boostrap Stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Our own CSS stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/global.css">
+    </head>
+    <body>
+        <div class = "container">
+            <div class = "row">
+                <div class = "col-6">
+                    <section class = "player">
+                        <h2 id = "player-1-name"class= "player-name">Waiting for Player 1</h1>
+                        <div class = "player-box" id="player-1-box"></div>
+                        <div class = "score" id = "player-1-score"></div>
+                    </section>
+                </div>
+                <div class = "col-6">
+                    <section class = "player">
+                        <h2 id = "player-2-name">Waiting for Player 2</h2>
+                        <div class = "player-box" id="player-2-box"></div>
+                        <div class = "score" id = "player-2-score"></div>
+                    </section>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-8"></div>
+                <div class = "col-4" id ="watchers"></div>
+            </div>
+            <div class = "row">
+                <div class = "col-12">
+                    <form id = "sign-in">
+                        <input type = "text" id = "name">
+                        <button type = "submit">Sign In</button>
+                    </form>
+                    <button id = "push">push</button>
+                </div>
+            </div>
+        </div>
+        <!-- Firbase -->
+        <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+        <!-- <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-auth.js"></script> -->
+        <!-- <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-database.js"></script> -->
+        <!-- <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-firestore.js"></script> -->
+        <!-- <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-messaging.js"></script> -->
+        <!-- <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-functions.js"></script> -->
+        
+        <!-- JQuery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src = "assets/javascript/RPS.js"></script>
+    </body>
+</html>
