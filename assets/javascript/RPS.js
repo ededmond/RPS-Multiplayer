@@ -85,16 +85,22 @@ database.ref("/Player1/values").on("value",function(snapshot) {
         $("#Player1-wins").text("wins: " + snapshot.val().wins);
         $("#Player1-losses").text("losses: " + snapshot.val().losses);
         var status = snapshot.val().status;
-        $("#Player1-choice").text(status);
         if (player === "Player1") {
             myWins = snapshot.val().wins;
             myLosses = snapshot.val().losses;
             if (status === "thinking") {//need to make a turn
                 $("#Player1-choices").attr("class",'choices');
+                $("#Player1-handshake").addClass("hidden");
             } else {
                 $("#Player1-choices").addClass("hidden");
+                $("#Player1-handshake").attr("class","far fa-handshake");
             }
-        } 
+        } else {
+            $("#Player1-handshake").attr("class","far fa-handshake");
+            if (status === "thinking") {
+                $("#Player1-handshake").addClass("muted");
+            }
+        }
     } catch (error) {
         $("#player-1-name").text("Waiting for Player 1");
         p1Name = "n/a";
@@ -117,14 +123,20 @@ database.ref("/Player2/values").on("value",function(snapshot) {
         $("#Player2-wins").text("wins: " + snapshot.val().wins);
         $("#Player2-losses").text("losses: " + snapshot.val().losses);
         var status = snapshot.val().status;
-        $("#Player2-choice").text(status);
         if (player === "Player2") {
             myWins = snapshot.val().wins;
             myLosses = snapshot.val().losses;
             if (status === "thinking") {//need to make a turn
                 $("#Player2-choices").attr("class",'choices');
+                $("#Player2-handshake").addClass("hidden");
             } else {
                 $("#Player2-choices").addClass("hidden");
+                $("#Player2-handshake").attr("class","far fa-handshake");
+            }
+        } else {
+            $("#Player2-handshake").attr("class","far fa-handshake");
+            if (status === "thinking") {
+                $("#Player2-handshake").addClass("muted");
             }
         } 
     } catch (error) {

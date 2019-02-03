@@ -1,13 +1,32 @@
 body {
     text-align:center;
+    background-image : url("../images/crossline-lines/crossline-lines.png");
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .container {
     margin-top : 30px;
+    background-color:rgb(150, 201, 194);
+    border-radius:5px;
+}
+.player-name {
+    margin:10px;
+    padding:10px;
+    background-color:lightblue;
+    border:cadetblue solid 2px;
+    border-radius: 5px;
 }
 .player-box {
-    border: lightblue solid 1px;
-    border-radius : 5px;
-    height:100px;
+    background-color:lightblue;
+    border:cadetblue solid 2px;
+    border-radius: 5px;
+    padding:10px;
+    min-height:128px;
+}
+.choice {
+    background-color:cadetblue;
+    border-color: cadetblue;
+    outline:none !important;
+    border-radius: 20px;
 }
 .wins {
     text-align:left;
@@ -19,10 +38,13 @@ body {
     width:100%;
     margin : 40px;
     margin-left:0;
+    background-color:lightblue;
     border:cadetblue solid 2px;
     border-radius: 5px;
     text-align:left;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
+
 #messages {
     height:30vh;
     padding:5px;
@@ -30,21 +52,59 @@ body {
 }
 #message {
     width: 100%;
+    border:none;
+    border-top:cadetblue solid 2px;
+    background-color:rgb(116, 151, 180);
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    color:paleturquoise;
 }
 #sendMessage {
     position:absolute;
-    right:17px;
-    bottom:42px;
+    right:15px;
+    bottom:40px;
+    background-color:cadetblue;
+    border-color: cadetblue;
+    outline:none !important;
+    color:darkslategrey;
 }
 #result {
     position : fixed;
-    left : 30vw;
+    left : 40vw;
     top : 30vh;
-    background-color :white;
     z-index : 5;
-    border: lightblue solid 1px;
+    border: black solid 2px;
     border-radius : 5px;
+    padding:50px;
+    background-color:lightblue;
+}
+.fa-handshake {
+    font-size:100px;
+}
+.fa-hand-rock,.fa-hand-paper,.fa-hand-scissors {
+    font-size:100px;
+}
+#name {
+    background-color:cadetblue;
+    border-color:cadetblue;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    color:paleturquoise;
+    outline: none !important;
+}
+#sign-in,#sign-out {
+    margin-bottom:10px;
+    border-radius:5px;
+    background-color:cadetblue;
+    border-color:cadetblue;
+    color:paleturquoise;
+}
+.muted {
+    opacity:0.3;
 }
 .hidden {
     display : none;
 }
+button {
+    outline:none !important;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
