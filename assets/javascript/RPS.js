@@ -23,8 +23,18 @@ connectedRef.on("value", function(snap) {
       con.onDisconnect().remove();
     }
 });
-var p1Name;
-var p2Name;
+
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+  .then(function() {
+    signout();
+  })
+  .catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+});
+var p1Name = "n/a";
+var p2Name = "n/a";
 var player = "n/a";
 var myWins = 0;
 var myLosses = 0;
@@ -49,16 +59,21 @@ $("#sign-in").submit(function(e) {
         });
     }
 });
-$("#sign-out").on("click",function() {
+function signout() {
     database.ref(player).set({
         choice : "void"
     });
+    database.ref("/choices/"+player).remove();
+    $("#"+player+"-choices").addClass("hidden");
     sessionStorage.clear();
     firebase.auth().signOut().catch(function(error) {
         console.log(error.code);
     });
+}
+$("#sign-out").on("click",function() {
+    signout();
 })
-
+//update interface when player info changes
 database.ref("/Player1/values").on("value",function(snapshot) {
     try {
         p1Name = snapshot.val().name;
@@ -82,6 +97,13 @@ database.ref("/Player1/values").on("value",function(snapshot) {
         } 
     } catch (error) {
         $("#player-1-name").text("Waiting for Player 1");
+        p1Name = "n/a";
+    }
+    if ((p1Name === "n/a" || p2Name === "n/a") && player === "n/a") {
+        //if current person isn't playing and either p1 or p2 are absent
+        $("#sign-in").attr("class","");
+    } else {
+        $("#sign-in").addClass("hidden");
     }
 });
 database.ref("/Player2/values").on("value",function(snapshot) {
@@ -107,11 +129,19 @@ database.ref("/Player2/values").on("value",function(snapshot) {
         } 
     } catch (error) {
         $("#player-2-name").text("Waiting for Player 2");
+        p2Name = "n/a";
+    }
+    if ((p1Name === "n/a" || p2Name === "n/a") && player === "n/a") {
+        //if current person isn't playing and either p1 or p2 are absent
+        $("#sign-in").attr("class","");
+    } else {
+        $("#sign-in").addClass("hidden");
     }
 });
 //user signed in
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
+        $("#newMessage").attr("class",'');
         // User is signed in.
         $("#sign-in").addClass("hidden");
         $("#sign-out").attr("class",'');
@@ -131,6 +161,8 @@ firebase.auth().onAuthStateChanged(function(user) {
             player = "Player1";
             //fixes a problem where authentication is called after first getting p1 values (we didn't know player was here yet)
             database.ref("/Player1/values").push(true);
+            //if disconnected, remove player from the game
+            database.ref("/Player1").onDisconnect().remove();
         }, function (error) {
             //there's already a player1
             database.ref("/Player2/"+user.uid).set({
@@ -148,6 +180,8 @@ firebase.auth().onAuthStateChanged(function(user) {
                 player = "Player2";
                 //fixes a problem where authentication is called after first getting p1 values
                 database.ref("/Player2/values").push(true);
+                //if disconnected; remove player from the game
+                database.ref("/Player2").onDisconnect().remove();
             },function (error) {
                 console.log(error2.code);
                 //Already 2 players; shouldn't ever happen
@@ -157,6 +191,8 @@ firebase.auth().onAuthStateChanged(function(user) {
             
       
     } else {
+        //only logged in users can chat
+        $("#newMessage").addClass("hidden");
       $("#sign-in").attr("class",'');
       $("#sign-out").addClass("hidden");
     }
@@ -234,6 +270,7 @@ database.ref("/winner").on("value",function(snapshot) {
         $("#result").addClass("hidden");
     },3000) //after 3 seconds hide the result bar
 })
+//actual rock paper scissors game
 function rps(c1,c2) {
     var p1 = RPS[c1];
     var p2 = RPS[c2];
@@ -261,3 +298,19 @@ connectionsRef.on("value", function(snapshot) {
     $("#watchers").text("Players waiting = " + (numConnected - 2));
     
 });
+//CHAT FUNCTIONALITY
+database.ref("/messages").on("child_added",function(snapshot) {
+    console.log('this function called');
+    var newName = $("<b>").text(snapshot.val().username + ": ");
+    var newMessage = $("<div>").text(snapshot.val().message);
+    newMessage.prepend(newName);
+    $("#messages").append(newMessage);
+});
+$("#newMessage").submit(function(e) {
+    e.preventDefault();
+    database.ref("/messages").push({
+        username : sessionStorage.getItem("name"),
+        message : $("#message").val().trim()
+    });
+    $("#message").val('');
+})

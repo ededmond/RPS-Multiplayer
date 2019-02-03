@@ -22,48 +22,63 @@
                 <div class = "col-6">
                     <section class = "player">
                         <h2 id = "player-1-name"class= "player-name">Waiting for Player 1</h1>
-                        <div class = "player-box" id="player-1-box">
-                            <div id = "Player1-choice"></div>
-                            <div id = "Player1-choices" class ="hidden">
-                                <button class = "choice" value = "rock">Rock</button>
-                                <button class = "choice" value = "paper">Paper</button>
-                                <button class = "choice" value = "scissors">Scissors</button>
-                            </div>
-                        </div>
-                        <div class = "row">
-                            <div class = "col-6">
-                                <div class = "wins" id = "Player1-wins"></div>
-                            </div>
-                            <div class = "col-6">
-                                <div class = "losses" id = "Player1-losses"></div>
-                            </div>
-                        </div>
                     </section>
                 </div>
                 <div class = "col-6">
                     <section class = "player">
-                        <h2 id = "player-2-name">Waiting for Player 2</h2>
-                        <div class = "player-box" id="player-2-box">
-                            <div id = "Player2-choice"></div>
-                            <div id = "Player2-choices" class = "hidden">
-                                <button class = "choice" value = "rock">Rock</button>
-                                <button class = "choice" value = "paper">Paper</button>
-                                <button class = "choice" value = "scissors">Scissors</button>
-                            </div>
-                        </div>
-                        <div class = "row">
-                            <div class = "col-6">
-                                <div class = "wins" id = "Player2-wins"></div>
-                            </div>
-                            <div class = "col-6">
-                                <div class = "losses" id = "Player2-losses"></div>
-                            </div>
-                        </div>
+                        <h2 id = "player-2-name" class = "player-name">Waiting for Player 2</h2>
                     </section>
                 </div>
             </div>
             <div class = "row">
-                <div class = "col-8"></div>
+                <div class = "col-6">
+                    <div class = "player-box" id="player-1-box">
+                        <div id = "Player1-choice"></div>
+                        <div id = "Player1-choices" class ="hidden">
+                            <button class = "choice" value = "rock"><i class="far fa-hand-rock"></i></button>
+                            <button class = "choice" value = "paper"><i class="far fa-hand-paper"></i></button>
+                            <button class = "choice" value = "scissors"><i class="far fa-hand-scissors"></i></button>
+                        </div>
+                    </div>
+                    <div class = "row">
+                        <div class = "col-6">
+                            <div class = "wins" id = "Player1-wins"></div>
+                        </div>
+                        <div class = "col-6">
+                            <div class = "losses" id = "Player1-losses"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class = "col-6">
+                    <div class = "player-box" id="player-2-box">
+                        <div id = "Player2-choice"></div>
+                        <div id = "Player2-choices" class = "hidden">
+                            <button class = "choice" value = "rock"><i class="far fa-hand-rock"></i></button>
+                            <button class = "choice" value = "paper"><i class="far fa-hand-paper"></i></button>
+                            <button class = "choice" value = "scissors"><i class="far fa-hand-scissors"></i></button>
+                        </div>
+                    </div>
+                    <div class = "row">
+                        <div class = "col-6">
+                            <div class = "wins" id = "Player2-wins"></div>
+                        </div>
+                        <div class = "col-6">
+                            <div class = "losses" id = "Player2-losses"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-8">
+                    <div class = "chat">
+                        <div id = "messages"></div>
+                        <form id = "newMessage">
+                            <input type = "text" id = "message">
+                            <button type = "submit"id = "sendMessage"><i class="far fa-comment-alt"></i></button>
+                        </form>
+                        
+                    </div>
+                </div>
                 <div class = "col-4" id ="watchers"></div>
             </div>
             <div class = "row">

@@ -1,6 +1,9 @@
 body {
     text-align:center;
 }
+.container {
+    margin-top : 30px;
+}
 .player-box {
     border: lightblue solid 1px;
     border-radius : 5px;
@@ -12,10 +15,31 @@ body {
 .losses {
     text-align:right;
 }
+.chat {
+    width:100%;
+    margin : 40px;
+    margin-left:0;
+    border:cadetblue solid 2px;
+    border-radius: 5px;
+    text-align:left;
+}
+#messages {
+    height:30vh;
+    padding:5px;
+    overflow-y:scroll;
+}
+#message {
+    width: 100%;
+}
+#sendMessage {
+    position:absolute;
+    right:17px;
+    bottom:42px;
+}
 #result {
     position : fixed;
     left : 30vw;
-    top : 20px;
+    top : 30vh;
     background-color :white;
     z-index : 5;
     border: lightblue solid 1px;
